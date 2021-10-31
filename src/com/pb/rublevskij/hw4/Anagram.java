@@ -4,9 +4,13 @@ import java.util.Scanner;
 
 public class Anagram {
 
+    private static String a;
+    private static String b;
+
     static boolean isAnagram(String a, String b) {
         a = a.toLowerCase();
         b = b.toLowerCase();
+
         if (a.length() != b.length()) {
             return false;
         }
@@ -24,14 +28,11 @@ public class Anagram {
     }
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
         System.out.println("Первая строка:");
-        String a = scan.next();
+        a = new Scanner(System.in).nextLine().replaceAll("[^A-Za-zА-Яа-я0-9]", "");
         System.out.println("Вторая строка:");
-        String b = scan.next();
-        scan.close();
+        b = new Scanner(System.in).nextLine().replaceAll("[^A-Za-zА-Яа-я0-9]", "");
         boolean ret = isAnagram(a, b);
         System.out.println((ret) ? "Anagrams" : "Not Anagrams");
-
     }
 }
